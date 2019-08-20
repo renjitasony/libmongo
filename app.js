@@ -2,7 +2,10 @@ var express = require('express');
 var bodyparser = require("body-parser");
 var bkrouter = require("./routes/bookrouter");
 var authrouter = require("./routes/authrouter");
+var userrouter = require("./routes/userrouter");
+var newbookrouter = require("./routes/newbookrouter");
 var mongoose = require('mongoose');
+var muser = require('./model/user');
 
 var url = "mongodb://localhost/library"
 
@@ -26,29 +29,21 @@ app.listen(8976,function(req,res){
 });
 app.use(express.static(path.join(__dirname,"/public")));
 app.use(bodyparser.urlencoded({extended:true}));
+
 app.use("/books",bkrouter);
 app.use("/authors",authrouter);
+app.use("/user",userrouter);
+app.use("/nwbk",newbookrouter);
+
 app.get("/",function(req,res){
+    res.render("login");
+});
+
+app.get("/index",function(req,res){
     // res.sendFile(__dirname+"/src/views/index.html");
     res.render("index",{
         ptitle:"Library",
-        nav:[{link:"/books",title:"Books"},{link:"/authors",title:"Authors"}]
+        nav:[{link:"/books",title:"Books"},{link:"/authors",title:"Authors"},{link:"/nwbk",title:"New Book"}]
     });
 });
-// app.get("/books",function(req,res){
-//     res.render("books",{
-//         ptitle:"Books",
-//         nav:[{link:"/books",title:"Books"},{link:"/authors",title:"Authors"}],
-//         bookslist:book_array
-//     });
-// });
-// app.get("/book/:id",function(req,res){
-//     var id = req.params.id;
-//     console.log(id);
-//     console.log(book_array[id].bktitle);
-//     res.render("book",{
-//         ptitle:"Books",
-//         nav:[{link:"/books",title:"Books"},{link:"/authors",title:"Authors"}],
-//         book:book_array[id]
-//     });
-// });
+

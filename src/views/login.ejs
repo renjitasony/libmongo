@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title> 
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <br>
+        
+        <div id="outer">
+          <h1 class=".display-1" style="color: white; text-align: left; padding:70px;">Library</h1>
+        </div>
+        <br>
+      <div class="row" id="bookdetails">
+        <div class="col">
+            <form action="/user/login" method="POST">
+                <div class="form-group">
+                  <label for="uname">User Name</label>
+                  <input type="input" class="form-control" id="uname" name="uname" placeholder="Enter username">              
+                </div>
+                <div class="form-group">
+                  <label for="pwd">Password</label>
+                  <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Password">
+                </div>            
+                <button type="submit" class="btn btn-primary" id="login" name="login">Login</button>
+                <a href="/user/signup">Sign Up</a>
+              </form>
+        </div>
+      </div>        
+    </div>
+</body>
+</html>

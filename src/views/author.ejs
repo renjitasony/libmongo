@@ -95,14 +95,14 @@
           <div class="row">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="<%= author.bkimage %>" style="width:100px;height:100px" class="img-circle"></a>
+              <a class="story-title" href="#"><img alt="" src="<%= author.authimage %>" style="width:100px;height:100px" class="img-circle"></a>
             </div>
             <div class="col-md-10 col-sm-9">
-              <h3><%= author.bktitle %></h3>
+              <h3><%= author.authname %></h3>
               <div class="row">
                 <div class="col-xs-9">
-                  <h4><span class="label label-default"><%= author.bkauthor %></span></h4><h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted">Pages: <%= author.bkpages %> <a href="/authors" class="text-muted">Read More</a></small>
+                  <h4><span class="label label-default"><%= author.authgenre %></span></h4><h4>
+                  <small style="font-family:courier,'new courier';" class="text-muted">Pages: <%= author.authgenre %></small>
                   </h4></div>
                 <div class="col-xs-3"></div>
               </div>
@@ -116,8 +116,7 @@
           <!--/stories-->
           
           
-          <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a>
-        
+                  
           
         </div>
       </div>
