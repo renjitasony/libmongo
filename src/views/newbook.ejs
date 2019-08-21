@@ -86,7 +86,7 @@
       
       <div class="panel">
         <div class="panel-body">
-          <form action="/nwbk/add" method="post">
+          <form action="/nwbk/add" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="bid">Enter book ID:</label>
                     <input type="input" class="form-control" name="bid" placeholder="ID">
@@ -97,8 +97,8 @@
                     <label for="bcategory">Enter the category:</label>
                     <input type="input" class="form-control" name="bcategory" placeholder="Category"> 
                     <label for="bimage">Upload the image:</label>
-                    <input type="file" class="form-control" name="bimage" id="bimage" placeholder="Image"> 
-                </div>                                  
+                    <input type="file" accept="image/*" class="form-control" name="bimage" id="bimage" placeholder="Image">                                   
+                </div>                
                 <button type="submit" class="btn btn-primary" name="add">Add</button>
           </form>
           

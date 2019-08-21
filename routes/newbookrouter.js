@@ -3,20 +3,19 @@ var book = require('../model/book');
 var multer = require('multer');
 var path = require('path');
 
+const router = express.Router();
+module.exports = router;
+
 var storage = multer.diskStorage({
-    destination:(req,file,cb)=>{
-        cb(null,path.join(__dirname,'/../public/uploads/'));
-        console.log("the path")
-        console.log(path);
+    destination:function(req,file,cb){
+        cb(null,path.join(__dirname,'/../public/uploads/'));          
     },
-    filename:(req,file,cb)=>{
+    filename:function(req,file,cb){
+        // let fileExtension = file.mimetype.split("/").pop();        
         cb(null,"image_"+req.body.bid+".jpg");
     }
 });
-var upload = multer({storage:storage});
-
-const router = express.Router();
-module.exports = router;
+ var upload = multer({storage:storage});
 
 router.get("/",(req,res)=>{
     res.render("newbook",{
@@ -26,6 +25,7 @@ router.get("/",(req,res)=>{
 });
 router.post("/add",upload.single('bimage'),(req,res)=>{
     var b1 = new book();
+    
     b1.bkid = req.body.bid;
     b1.bktitle = req.body.bname;
     b1.bkauthor = req.body.bauthor;
@@ -39,4 +39,11 @@ router.post("/add",upload.single('bimage'),(req,res)=>{
             res.redirect("/books");
         }
     })
+})
+router.get("/viewimage/:image",(req,res)=>{
+    console.log("viewing")
+    
+    path.join(__dirname,'/../public/uploads/',req.params.image);
+    console.log(path.join(__dirname,'/../public/uploads/',req.params.image));
+    res.sendFile(path.join(__dirname,'/../public/uploads/',req.params.image));
 })
