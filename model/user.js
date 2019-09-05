@@ -3,8 +3,7 @@ var schema = mongoose.Schema;
 var userschema = new schema({ 
     name:{type:String,required:true}, 
     mob:{type:Number,required:true}, 
-    username:{type:String,required:true}, 
-    role:{type:String,required:true,default:"client"}, 
+    username:{type:String,required:true},     
     mail:String,
     password:{type:String,required:true}    
 });

@@ -2,7 +2,8 @@
 <html lang="en">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta charset="utf-8">
+    <meta charset="utf-8">
+    <base href="/">
 		<title><%= ptitle %></title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -34,10 +35,10 @@
         <% } %>        
       </ul>
       <ul class="nav navbar-right navbar-nav">
-          <li>
-             <a href="/">Log out</a>
-         </li>
-       </ul>
+         <li>
+            <a href="/">Log out</a>
+        </li>
+      </ul>
     </nav>
   </div>
 </header>
@@ -81,37 +82,30 @@
       
       <div class="panel">
         <div class="panel-body">
+          <form action="/crudbk/update" method="post" enctype="multipart/form-data" onsubmit="return validateForm(this);">
+                <div class="form-group">
+                    <label for="bid">Enter book ID:</label>                    
+                    <input type="input" readonly class="form-control" name="bid" id="bid" value="<%= book.bkid %>" placeholder="ID">
+                    <label for="bname">Enter title:</label>
+                    <input type="input" class="form-control" name="bname" id="bname" value="<%= book.bktitle %>" placeholder="Title">
+                    <label for="bauthor">Enter the author:</label>
+                    <input type="input" class="form-control" name="bauthor" id="bauthor" value="<%= book.bkauthor %>" placeholder="Author">
+                    <label for="bcategory">Enter the category:</label>                    
+                    <input type="input" class="form-control" name="bcategory" id="bcategory" value="<%= book.bkcategory %>" placeholder="Category">                     
+                    <label>Image:</label>
+                    <a href="/viewimage/<%= book.bkimage %>" style="text-align:right; color: blue; "><%= book.bkimage %></a>                    
+                    <br>
+                    <label for="bimage">Reupload the image:</label>
+                    <input type="file" accept="image/*" class="form-control" name="bimage" id="bimage" placeholder="Image">                                   
+                </div>                
+                <button type="submit" class="btn btn-primary">Update</button>
+          </form>
           
-          
-          
-          <!--/stories-->
-          <% for(var i=0; i<bookslist.length; i++){ %>
-          <div class="row">    
-            <br>
-            <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="/viewimage/<%= bookslist[i].bkimage %>" style="width:100px;height:100px" class="img-circle"></a>
-            </div>
-            <div class="col-md-10 col-sm-9">
-              <h3><%= bookslist[i].bktitle %></h3>
-              <div class="row">
-                <div class="col-xs-8">
-                  <h4><span class="label label-default"><%= bookslist[i].bkauthor %></span></h4><h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted">Pages: <%= bookslist[i].bkpages %> <a href="/books/<%= bookslist[i].bktitle %>" class="text-muted">Read More</a></small>
-                  </h4>
-                </div>
-                <div class="col-xs-4">
-                  <a href="/crudbk/edit/<%= bookslist[i].bkid %>" class="btn btn-primary btnNext">Edit<i class="glyphicon glyphicon-chevron-right"></i></a>
-                  <a href="/crudbk/delete/<%= bookslist[i].bkid %>" class="btn btn-danger btnNext">Delete<i class="glyphicon glyphicon-chevron-right"></i></a>                  
-                </div>
-              </div>
-              <br><br>
-            </div>
-          </div>
-          <hr>
-          <% } %>
-                              
         </div>
-      </div>                                                                                                                           
+      </div>
+                                                                                       
+	                                                
+                                                      
    	</div><!--/col-12-->
   </div>
 </div>
@@ -158,6 +152,7 @@
 </footer>
 	<!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>   
+    <script src="js/validations.js"></script> 
 	</body>
 </html>

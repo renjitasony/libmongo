@@ -10,19 +10,19 @@ router.get("/",(req,res)=>{
         else{
             res.render("authors",{
                 ptitle:"Authors",
-                nav:[{link:"/books",title:"Books"},{link:"/authors",title:"Authors"},{link:"/nwbk",title:"New Book"}],
+                nav:[{link:"/books",title:"Books"},{link:"/authors",title:"Authors"},{link:"/crudbk",title:"New Book"},{link:"/crudauth",title:"New Author"}],
                 authorslist:result
             });
         }
     });    
 });
 router.get("/:id",(req,res)=>{      
-    author.findOne({authid:eq.params.id},(err,result)=>{
+    author.findOne({authid:req.params.id},(err,result)=>{
        if(err) throw err;
        else{
         res.render("author",{
             ptitle:"Authors",
-            nav:[{link:"/books",title:"Books"},{link:"/authors",title:"Authors"},{link:"/nwbk",title:"New Book"}],
+            nav:[{link:"/books",title:"Books"},{link:"/authors",title:"Authors"},{link:"/crudbk",title:"New Book"},{link:"/crudauth",title:"New Author"}],
             author:result
         });
        }

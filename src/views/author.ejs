@@ -23,8 +23,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </button>
-      <a href="/" class="navbar-brand">Home</a>
+      </button>      
+      <a href="/index" class="navbar-brand">Home</a>
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
@@ -35,15 +35,10 @@
         <% } %>        
       </ul>
       <ul class="nav navbar-right navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
-          <ul class="dropdown-menu" style="padding:12px;">
-            <form class="form-inline">
-              <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
-            </form>
-          </ul>
-        </li>
-      </ul>
+          <li>
+             <a href="/">Log out</a>
+         </li>
+       </ul>
     </nav>
   </div>
 </header>
@@ -59,8 +54,7 @@
       <div class="col-md-5">
         <div class="well well-lg"> 
           <div class="row">
-            <div class="col-sm-12">
-              
+            <div class="col-sm-12">             
 			
             </div>
           </div>
@@ -95,14 +89,14 @@
           <div class="row">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="<%= author.authimage %>" style="width:100px;height:100px" class="img-circle"></a>
+              <a class="story-title" href="#"><img alt="" src="/viewimage/<%= author.authimage %>" style="width:100px;height:100px" class="img-circle"></a>
             </div>
             <div class="col-md-10 col-sm-9">
               <h3><%= author.authname %></h3>
               <div class="row">
                 <div class="col-xs-9">
                   <h4><span class="label label-default"><%= author.authgenre %></span></h4><h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted">Pages: <%= author.authgenre %></small>
+                  <small style="font-family:courier,'new courier';" class="text-muted">Language: <%= author.authlang %></small>
                   </h4></div>
                 <div class="col-xs-3"></div>
               </div>

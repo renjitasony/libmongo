@@ -9,7 +9,7 @@ router.get("/",(req,res)=>{
         else{
             res.render("books",{
                 ptitle:"Books",
-                nav:[{link:"/books",title:"Books"},{link:"/authors",title:"Authors"},{link:"/nwbk",title:"New Book"}],
+                nav:[{link:"/books",title:"Books"},{link:"/authors",title:"Authors"},{link:"/crudbk",title:"New Book"},{link:"/crudauth",title:"New Author"}],
                 bookslist:result
             });
         }
@@ -21,8 +21,8 @@ router.get("/:bktitle",(req,res)=>{
         if(err) throw err;
         else{
             res.render("book",{
-                ptitle:"Books",
-                nav:[{link:"/books",title:"Books"},{link:"/authors",title:"Authors"},{link:"/nwbk",title:"New Book"}],
+                ptitle:"Book",
+                nav:[{link:"/books",title:"Books"},{link:"/authors",title:"Authors"},{link:"/crudbk",title:"New Book"},{link:"/crudauth",title:"New Author"}],
                 book:result
             });
         }

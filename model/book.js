@@ -11,5 +11,5 @@ var bkschema = new schema({
     bkimage:String
 });
 
-var bkmodel = mongoose.model("Book",bkschema,"Books");
+var bkmodel = mongoose.model("book",bkschema,"books");
 module.exports = bkmodel;

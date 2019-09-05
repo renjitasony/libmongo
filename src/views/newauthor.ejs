@@ -81,37 +81,27 @@
       
       <div class="panel">
         <div class="panel-body">
+          <form action="/crudauth/add" method="post" enctype="multipart/form-data" onsubmit="return validateForm(this);">
+                <div class="form-group">
+                    <label for="authid">Enter author ID:</label>
+                    <input type="input" class="form-control" name="authid" id="authid" placeholder="ID" required>
+                    <label for="authname">Enter name:</label>
+                    <input type="input" class="form-control" name="authname" id="authname" placeholder="Name">
+                    <label for="authlang">Enter the language:</label>
+                    <input type="input" class="form-control" name="authlang" id="authlang" placeholder="Language">
+                    <label for="authgenre">Enter the genre:</label>
+                    <input type="input" class="form-control" name="authgenre" id="authgenre" placeholder="Genre"> 
+                    <label for="authimage">Upload the image:</label>
+                    <input type="file" accept="image/*" class="form-control" name="authimage" id="authimage" placeholder="Image">                                   
+                </div>                
+                <button type="submit" class="btn btn-primary" name="add">Add</button>
+          </form>
           
-          
-          
-          <!--/stories-->
-          <% for(var i=0; i<bookslist.length; i++){ %>
-          <div class="row">    
-            <br>
-            <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="/viewimage/<%= bookslist[i].bkimage %>" style="width:100px;height:100px" class="img-circle"></a>
-            </div>
-            <div class="col-md-10 col-sm-9">
-              <h3><%= bookslist[i].bktitle %></h3>
-              <div class="row">
-                <div class="col-xs-8">
-                  <h4><span class="label label-default"><%= bookslist[i].bkauthor %></span></h4><h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted">Pages: <%= bookslist[i].bkpages %> <a href="/books/<%= bookslist[i].bktitle %>" class="text-muted">Read More</a></small>
-                  </h4>
-                </div>
-                <div class="col-xs-4">
-                  <a href="/crudbk/edit/<%= bookslist[i].bkid %>" class="btn btn-primary btnNext">Edit<i class="glyphicon glyphicon-chevron-right"></i></a>
-                  <a href="/crudbk/delete/<%= bookslist[i].bkid %>" class="btn btn-danger btnNext">Delete<i class="glyphicon glyphicon-chevron-right"></i></a>                  
-                </div>
-              </div>
-              <br><br>
-            </div>
-          </div>
-          <hr>
-          <% } %>
-                              
         </div>
-      </div>                                                                                                                           
+      </div>
+                                                                                       
+	                                                
+                                                      
    	</div><!--/col-12-->
   </div>
 </div>
@@ -158,6 +148,7 @@
 </footer>
 	<!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/validations.js"></script> 
 	</body>
 </html>

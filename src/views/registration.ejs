@@ -17,31 +17,56 @@
     <div class="container">
         <div class="row">
             <div class="col-6">
-                    <form action="/user/register" method="POST">
-                        <div class="form-group">
-                          <label for="uname">Enter your name</label>
-                          <input type="input" class="form-control" id="uname" name="uname" placeholder="Enter name"> 
-                          <label for="mob">Enter your mobile no:</label>
-                          <input type="number" class="form-control" id="mob" name="mob" placeholder="Enter mobile number">              
-                          <label for="usname">Enter a user name:</label>
-                          <input type="text" class="form-control" id="usname" name="usname" placeholder="User name">  
-                          <label for="urole">Enter your role:</label>
-                          <input type="text" class="form-control" id="urole" name="urole" placeholder="User name">            
+                <form action="/user/register" method="POST" onsubmit="return validateForm();">
+                  <div class="form-group">
+                    <label for="uname">Enter your name</label>
+                    <input type="input" class="form-control" id="uname" name="uname" placeholder="Enter name">
+                  </div>
+                  <div class="form-group">
+                      <label for="mob">Enter your mobile no:</label>
+                      <input type="number" class="form-control" id="mob" name="mob" placeholder="Enter mobile number">              
+                  </div>
+                  <div class="form-group">
+                      <label for="usname">Enter a user name:</label>
+                      <input type="text" class="form-control" id="usname" name="usname" placeholder="User name">                          
+                  </div>
+                  <div class="form-group">
+                          <label for="uemail">Email address</label>
+                          <input type="email" class="form-control" id="uemail" name="uemail" aria-describedby="emailHelp" placeholder="Enter email">                            
                         </div>
-                        <div class="form-group">
-                                <label for="uemail">Email address</label>
-                                <input type="email" class="form-control" id="uemail" name="uemail" aria-describedby="emailHelp" placeholder="Enter email">                            
-                              </div>
-                        <div class="form-group">
-                          <label for="pwd">Enter a password</label>
-                          <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Password">
-                          <!-- <label for="pwd">Confirm password</label>
-                          <input type="password" class="form-control" id="cpwd" name="cpwd" placeholder="Password"> -->
-                        </div>            
-                        <button type="submit" class="btn btn-primary" name="register">Register</button>
-                      </form>
+                  <div class="form-group">
+                    <label for="pwd">Enter a password</label>
+                    <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Password">
+                    <label for="pwd">Confirm password</label>
+                    <input type="password" class="form-control" id="cpwd" name="cpwd" placeholder="Password">
+                  </div>            
+                  <button type="submit" class="btn btn-primary" name="register">Register</button>
+                </form>
             </div>
         </div>            
     </div>        
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      function validateForm(){        
+        if($("#uname").val() == ""){
+          alert("Name is mandatory!");
+          return false;
+        }
+        if($("#mob").val().length != 10){
+          alert("Enter a valid mobile no!");
+          return false;
+        }
+        if($("#usname").val() == ""){
+          alert("Username must be filled out");
+          return false;
+        }
+        if($("#pwd").val() != $("#cpwd").val()){
+          alert("Passwords should match");
+          return false;
+        }
+        return true;
+      }
+    </script>
 </body>
 </html>
